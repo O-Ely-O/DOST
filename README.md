@@ -2,7 +2,13 @@ Object Detection Flask App (Exam)
 ==============================
 
 For the given task, I decided to choose the real-time object detection machine learning
-model from YOLOv8 (You Only Look Once) and Integrate it with Flask application.
+model from YOLOv8 (You Only Look Once) and integrate it with Flask application.
+
+#NOTE:
+I was not able to deploy it in the cloud due to memory space issue I was not able to anticipate it early on.
+However, I recorded a video to demonstrate the functionality of the app and to show that its working.
+My apology for not able to comply with the instruction given in PART I.
+
 
 ## Links
 
@@ -24,20 +30,6 @@ Kindly check <https://colab.research.google.com/drive/1JsEVYdxxMgB5w1j8SMyRHb1NO
 on how the training process works. Below for the resource 
 <https://drive.google.com/drive/folders/1CTY3Kr_RggHAFwM702a-URzCeK-jiC3e?usp=sharing>
 
-## Deployment
-The app was deployed in AWS (free tier) account together with the other services
-	- Elastic Beanstalk (compute engine)
-	- RDS (database)
-
-## Quick start
-
-Here are the guides/instruction on how to access the web
-
-1. **Access the Login Page**: Navigate to `http://127.0.0.1:5000/login` in your web browser.
-2. **Enter Credentials**: Use the following default credentials to log in:
-	- **Username**: `admin@test.com`
-	- **Password**: `admin`
-3. **Click 'Login'**: After entering your credentials, click the 'Login' button to access the application.
 
 ## Documentation
 
@@ -45,3 +37,10 @@ Documentation for the Flespi.io broker, clients and connections can be found in
 the main page, which are available online at <https://flespi.com/>. There
 are also pages with an introduction to the features of MQTT.
 
+## DATABASE (Part II)
+
+Query used:
+	1. """SELECT UPPER(first_name) as upper_first_name FROM students"""
+	2. """SELECT DISTINCT major FROM students"""
+	3. """SELECT s.*, sch.scholarship_amount AS scholarship_amount FROM students s LEFT JOIN scholarships sch ON s.student_id = sch.student_ref_id;""
+	4. """SELECT s.student_id, first_name, last_name FROM students s LEFT JOIN scholarships sch ON s.student_id = sch.student_ref_id WHERE sch.student_ref_id IS NULL;"""
