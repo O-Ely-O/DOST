@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Executor</title>
+</head>
+<body>
+    <h1>Execute SQL Query</h1>
+    <form method="POST">
+        <label for="table-select">Select a table:</label>
+        <select id="table-select" name="selected_table">
+            <option value="">--Select a table--</option>
+            {% for table in tables %}
+                <option value="{{ table }}">{{ table }}</option>
+            {% endfor %}
+        </select>
+            <button type="submit">SELECT</button>
+            <br><br>
+
+        <label for="sql_query">Or enter your SQL query:</label>
+        <textarea name="sql_query" rows="4" cols="50" placeholder="Enter your SQL query here..."></textarea><br>
+        <button type="submit">RUN</button>
+    </form>
+    
+    <h2>Results</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for column in columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

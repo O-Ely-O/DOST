@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block content %}
+<main class="main-container">
+    <div id="mainPinpad" class="dlg-container">
+        <div class="dlg-header">
+            TASK I
+        </div>
+        <div class="dlg-body">
+            <h4>PART I. MACHINE LEARNING</h4>
+            <hr>
+            <p>
+                1. Train any machine learning model <br><br>
+                2. Deploy the model to the web
+            </p>
+            <ul>
+                <li>Has a prediction functionality</li>
+                <li>Any free web hosting or your personal portfolio</li>
+                <li>Kindly incorporate creative layout and design to demonstrate/display your skills.</li>
+            </ul>
+        </div>
+        <div class="dlg-footer">
+            <a class="prompt-btn" onclick="">PROCEED</a>
+        </div>
+    </div>
+    <div class="ml__card">
+        <div class="ml-video-chart__container">
+            <div class="ml-chart__subcard">
+                <div class="inner-chart">
+                    <div class="canvas-card">
+                        <canvas class="chart-data" id="temperature"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="video__subcard"> 
+                <div class="video__title">
+                    <span class="video__font">Trajectory View <i class="ri-live-line animated-red"></i></span>
+                </div>
+                <div class="ml__video">
+                    <img src="{{ url_for('video_feed', id='0') }}"/>
+                </div>
+            </div>
+        </div>
+        <div class="ml-logs__container">
+            <div id="alert" class="ml-logs__subcard">
+                <span class="video__font">LOGS</span>
+                <hr>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

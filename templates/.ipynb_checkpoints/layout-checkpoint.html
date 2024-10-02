@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>LARGA</title>
+        <!-- ======= Styles ====== -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+        <!-- =========== Chartjs =========  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+        <!-- =========== jQuery =========  -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div id="freezeLayer" class="freeze-layer"></div>
+            <!-- =========== Header =========  -->
+            <header class="header">
+                <div class="menu-icon" id="menu-inner">
+                <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="menu-icon-2" id="header-title">
+                    <div class="menu-outer">
+                        <span class="material-icons-outlined">menu</span>
+                    </div>
+                </div>
+            </header>
+            <!-- =========== Sidebar =========  -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="title">LARGA</span>
+                    </div>
+                </div>
+                <hr>
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item">
+                        <a class="sidebar-link" href="{{ url_for('panel') }}">
+                            <i class="ri-task-line"></i> Part 1
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a class="sidebar-link" href="{{ url_for('panel2') }}">
+                            <i class="ri-task-line"></i> Part 2
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">settings</span> Settings
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a class="sidebar-link" href="{{ url_for('logout') }}">
+                            <span class="material-icons-outlined">logout</span> Sign Out
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- =========== Main =========  -->
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!-- =========== MQTT JS & Scripts=========  -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/dataTable.js') }}"></script>
+        <script>
+            const main = new Main({
+                maxNumbers: 6,
+                loginEndpoint: `${window.origin}/panel`,
+                maxDataCount: 10
+            });
+        </script>
+    </body>
+</html>
