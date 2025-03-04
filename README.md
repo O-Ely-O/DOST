@@ -1,15 +1,5 @@
-Object Detection Flask App (Exam)
+Traffic Management System (Object Detection) Flask App
 ==============================
-
-For the given task, I decided to choose the real-time object detection machine learning
-model from YOLOv8 (You Only Look Once) and integrate it with Flask application.
-
-#NOTE:
-I was not able to deploy it in the cloud due to memory space issue I was not able to anticipate it early on.
-However, I recorded a video to demonstrate the functionality of the app and to show that its working.
-My apology for not able to comply with the instruction given in PART I.
-
-
 ## Links
 
 Kindly check the following links for more information on YOLOv8 and Flask:
@@ -36,11 +26,3 @@ on how the training process works. Below for the resource
 Documentation for the Flespi.io broker, clients and connections can be found in
 the main page, which are available online at <https://flespi.com/>. There
 are also pages with an introduction to the features of MQTT.
-
-## DATABASE (Part II)
-
-Query used:
-	1. """SELECT UPPER(first_name) as upper_first_name FROM students"""
-	2. """SELECT DISTINCT major FROM students"""
-	3. """SELECT s.*, sch.scholarship_amount AS scholarship_amount FROM students s LEFT JOIN scholarships sch ON s.student_id = sch.student_ref_id;""
-	4. """SELECT s.student_id, first_name, last_name FROM students s LEFT JOIN scholarships sch ON s.student_id = sch.student_ref_id WHERE sch.student_ref_id IS NULL;"""
