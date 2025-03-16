@@ -116,3 +116,46 @@ $(document).ready(function() {
         });
     }
 });
+
+
+## Test Only
+$(document).ready(function() {
+    $('.load-content-btn').on('click', function(event) {
+        event.preventDefault();
+        var url = $(this).data('url');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function(data) {
+                console.log(data);
+                $('#content-div').html(data);
+                const items = $('#content-div').find('.item');
+
+                items.each(function(index, item) {
+                    const $item = $(item).addClass('fade-in');
+                    $('#content-div').append($item);
+                })
+
+                // Fade in items as they scroll into view
+                fadeInOnScroll();
+            },
+            error: function(error) {
+                console.log("Error:", error);
+            }
+        });
+    });
+});
+
+            <div class="navbar__card">
+                <nav>
+                    <a class="load-content-btn" data-url="/about">About Me</a>
+                    <a class="load-content-btn" data-url="/project">Projects</a>
+                    <a class="load-content-btn" data-url="/certificate">Certificates</a>
+                    <a class="load-content-btn" data-url="/load-content">Hobbies</a>
+                    <a class="load-content-btn" data-url="/load-content">blog</a>
+                    <a class="load-content-btn" data-url="/load-content">Hire Me!</a>
+                    <div class="animation start-home"></div>
+                </nav>
+            </div>
+            <div class="main__card" id="content-div">
+            </div>
